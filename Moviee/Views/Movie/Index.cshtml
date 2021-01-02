@@ -1,0 +1,38 @@
+﻿
+@using Moviee.Models;
+@model List<TblMovie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MovieLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Movie Name</th>
+        <th>Director</th>
+        <th>Movie Year</th>
+        <th>Delete</th>
+        <th>Update</th>
+        
+    </tr>
+    @foreach(var x in Model)
+    {
+    <tr>
+        <td>@x.MovieId </td>
+        <td>@x.Name</td>
+        <td>@x.Director</td>
+        <td>@x.MovieYear</td>
+        <td><a href="/Movie/MovieDelete/@x.MovieId" class="btn btn-danger">Delete</a></td>
+        <td><a href="/Movie/MovieUpdate/@x.MovieId" class="btn btn-warning">Update</a></td>
+
+    </tr>
+
+    }
+
+
+
+</table>
+<a href="/Movie/Movieadd/" class="btn btn-primary">New Movie</a>
+
